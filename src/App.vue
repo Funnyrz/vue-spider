@@ -37,26 +37,30 @@
               </Select>
               <Button type="primary" size="small">配置URL</Button>
             </div>
-            <div class="spider-code-core">
-              <div class="demo-split">
-                <MonacoEditor
-                  width="85.5%"
-                  :height="editorHeight"
-                  theme="vs-dark"
-                  :language="currentLanguage"
-                  :options="options"
-                  @change="onChange"
-                ></MonacoEditor>
-                <Tabs style="width:80%; float: left;" v-if="consoleFlag">
-                  <TabPane label="macOS" icon="logo-apple">标签1</TabPane>
-                  <TabPane label="Windows" icon="logo-windows">标签二的内容</TabPane>
-                </Tabs>
+            <div class="spider-code-core" :style="domHeight">
+              <div class="spider-split" :style="domHeight">
+                <Split v-model="split2" mode="vertical" min="80">
+                  <div slot="top" class="demo-split-pane">
+                    <MonacoEditor
+                      :width="editorWidth"
+                      :height="editorHeight"
+                      theme="vs-dark"
+                      :language="currentLanguage"
+                      :options="options"
+                      @change="onChange"
+                    ></MonacoEditor>
+                  </div>
+                  <div slot="bottom">
+                    {"result":1,"callback":null,"data":{"count":3,"page_count":1,"floor_count":2,"list":[{"info":{"CommentId":"10066706","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-06-27 23:06:22","Content":"\u8d5e\u4e00\u4e2a\uff01","UserName":"sylfffffffff","Status":"1","IP":"112.94.188.245","IsBoleComment":"0","PKId":"0","Digg":"1","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":["itNewBoy"],"Avatar":"https:\/\/avatar.csdn.net\/1\/6\/B\/3_sylfffffffff.jpg","NickName":"sylfffffffff","date_format":"2\u4e2a\u6708\u524d"}},{"sub":[{"CommentId":"9317282","ArticleId":"83008749","BlogId":"7813532","ParentId":"9315613","PostTime":"2019-03-13 15:37:58","Content":"[reply]qq_42931952[\/reply]\n\u62a5\u9519\uff1f\u9519\u8bef\u4ee3\u7801\uff1f\u81ea\u5df1\u7a0d\u5fae\u5206\u6790\u4e0b\uff0c\u62ff\u6765\u4e3b\u4e49\u53ef\u4e0d\u597d","UserName":"xuquanxi1079","Status":"1","IP":"112.14.7.59","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"ParentUserName":"qq_42931952","ParentNickName":"\u5c0f\u7ef4\u5a05","Avatar":"https:\/\/avatar.csdn.net\/E\/1\/B\/3_xuquanxi1079.jpg","NickName":"TiHarper","date_format":"6\u4e2a\u6708\u524d"}],"info":{"CommentId":"9315613","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-03-13 11:40:50","Content":"\u62ff\u6765\u4e0d\u80fd\u7528","UserName":"qq_42931952","Status":"1","IP":"123.147.250.88","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"Avatar":"https:\/\/avatar.csdn.net\/D\/2\/C\/3_qq_42931952.jpg","NickName":"\u5c0f\u7ef4\u5a05","date_format":"6\u4e2a\u6708\u524d"}}]},"vote":0,"content":"success"}{"result":1,"callback":null,"data":{"count":3,"page_count":1,"floor_count":2,"list":[{"info":{"CommentId":"10066706","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-06-27 23:06:22","Content":"\u8d5e\u4e00\u4e2a\uff01","UserName":"sylfffffffff","Status":"1","IP":"112.94.188.245","IsBoleComment":"0","PKId":"0","Digg":"1","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":["itNewBoy"],"Avatar":"https:\/\/avatar.csdn.net\/1\/6\/B\/3_sylfffffffff.jpg","NickName":"sylfffffffff","date_format":"2\u4e2a\u6708\u524d"}},{"sub":[{"CommentId":"9317282","ArticleId":"83008749","BlogId":"7813532","ParentId":"9315613","PostTime":"2019-03-13 15:37:58","Content":"[reply]qq_42931952[\/reply]\n\u62a5\u9519\uff1f\u9519\u8bef\u4ee3\u7801\uff1f\u81ea\u5df1\u7a0d\u5fae\u5206\u6790\u4e0b\uff0c\u62ff\u6765\u4e3b\u4e49\u53ef\u4e0d\u597d","UserName":"xuquanxi1079","Status":"1","IP":"112.14.7.59","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"ParentUserName":"qq_42931952","ParentNickName":"\u5c0f\u7ef4\u5a05","Avatar":"https:\/\/avatar.csdn.net\/E\/1\/B\/3_xuquanxi1079.jpg","NickName":"TiHarper","date_format":"6\u4e2a\u6708\u524d"}],"info":{"CommentId":"9315613","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-03-13 11:40:50","Content":"\u62ff\u6765\u4e0d\u80fd\u7528","UserName":"qq_42931952","Status":"1","IP":"123.147.250.88","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"Avatar":"https:\/\/avatar.csdn.net\/D\/2\/C\/3_qq_42931952.jpg","NickName":"\u5c0f\u7ef4\u5a05","date_format":"6\u4e2a\u6708\u524d"}}]},"vote":0,"content":"success"}{"result":1,"callback":null,"data":{"count":3,"page_count":1,"floor_count":2,"list":[{"info":{"CommentId":"10066706","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-06-27 23:06:22","Content":"\u8d5e\u4e00\u4e2a\uff01","UserName":"sylfffffffff","Status":"1","IP":"112.94.188.245","IsBoleComment":"0","PKId":"0","Digg":"1","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":["itNewBoy"],"Avatar":"https:\/\/avatar.csdn.net\/1\/6\/B\/3_sylfffffffff.jpg","NickName":"sylfffffffff","date_format":"2\u4e2a\u6708\u524d"}},{"sub":[{"CommentId":"9317282","ArticleId":"83008749","BlogId":"7813532","ParentId":"9315613","PostTime":"2019-03-13 15:37:58","Content":"[reply]qq_42931952[\/reply]\n\u62a5\u9519\uff1f\u9519\u8bef\u4ee3\u7801\uff1f\u81ea\u5df1\u7a0d\u5fae\u5206\u6790\u4e0b\uff0c\u62ff\u6765\u4e3b\u4e49\u53ef\u4e0d\u597d","UserName":"xuquanxi1079","Status":"1","IP":"112.14.7.59","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"ParentUserName":"qq_42931952","ParentNickName":"\u5c0f\u7ef4\u5a05","Avatar":"https:\/\/avatar.csdn.net\/E\/1\/B\/3_xuquanxi1079.jpg","NickName":"TiHarper","date_format":"6\u4e2a\u6708\u524d"}],"info":{"CommentId":"9315613","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-03-13 11:40:50","Content":"\u62ff\u6765\u4e0d\u80fd\u7528","UserName":"qq_42931952","Status":"1","IP":"123.147.250.88","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"Avatar":"https:\/\/avatar.csdn.net\/D\/2\/C\/3_qq_42931952.jpg","NickName":"\u5c0f\u7ef4\u5a05","date_format":"6\u4e2a\u6708\u524d"}}]},"vote":0,"content":"success"}</TabPane>
+                     
+                    <!-- <Tabs style="width:95%; float: left;">
+                      <TabPane label="JSON" style="overflow:hidden;height50px;white-space:nowrap;">{"result":1,"callback":null,"data":{"count":3,"page_count":1,"floor_count":2,"list":[{"info":{"CommentId":"10066706","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-06-27 23:06:22","Content":"\u8d5e\u4e00\u4e2a\uff01","UserName":"sylfffffffff","Status":"1","IP":"112.94.188.245","IsBoleComment":"0","PKId":"0","Digg":"1","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":["itNewBoy"],"Avatar":"https:\/\/avatar.csdn.net\/1\/6\/B\/3_sylfffffffff.jpg","NickName":"sylfffffffff","date_format":"2\u4e2a\u6708\u524d"}},{"sub":[{"CommentId":"9317282","ArticleId":"83008749","BlogId":"7813532","ParentId":"9315613","PostTime":"2019-03-13 15:37:58","Content":"[reply]qq_42931952[\/reply]\n\u62a5\u9519\uff1f\u9519\u8bef\u4ee3\u7801\uff1f\u81ea\u5df1\u7a0d\u5fae\u5206\u6790\u4e0b\uff0c\u62ff\u6765\u4e3b\u4e49\u53ef\u4e0d\u597d","UserName":"xuquanxi1079","Status":"1","IP":"112.14.7.59","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"ParentUserName":"qq_42931952","ParentNickName":"\u5c0f\u7ef4\u5a05","Avatar":"https:\/\/avatar.csdn.net\/E\/1\/B\/3_xuquanxi1079.jpg","NickName":"TiHarper","date_format":"6\u4e2a\u6708\u524d"}],"info":{"CommentId":"9315613","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-03-13 11:40:50","Content":"\u62ff\u6765\u4e0d\u80fd\u7528","UserName":"qq_42931952","Status":"1","IP":"123.147.250.88","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"Avatar":"https:\/\/avatar.csdn.net\/D\/2\/C\/3_qq_42931952.jpg","NickName":"\u5c0f\u7ef4\u5a05","date_format":"6\u4e2a\u6708\u524d"}}]},"vote":0,"content":"success"}{"result":1,"callback":null,"data":{"count":3,"page_count":1,"floor_count":2,"list":[{"info":{"CommentId":"10066706","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-06-27 23:06:22","Content":"\u8d5e\u4e00\u4e2a\uff01","UserName":"sylfffffffff","Status":"1","IP":"112.94.188.245","IsBoleComment":"0","PKId":"0","Digg":"1","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":["itNewBoy"],"Avatar":"https:\/\/avatar.csdn.net\/1\/6\/B\/3_sylfffffffff.jpg","NickName":"sylfffffffff","date_format":"2\u4e2a\u6708\u524d"}},{"sub":[{"CommentId":"9317282","ArticleId":"83008749","BlogId":"7813532","ParentId":"9315613","PostTime":"2019-03-13 15:37:58","Content":"[reply]qq_42931952[\/reply]\n\u62a5\u9519\uff1f\u9519\u8bef\u4ee3\u7801\uff1f\u81ea\u5df1\u7a0d\u5fae\u5206\u6790\u4e0b\uff0c\u62ff\u6765\u4e3b\u4e49\u53ef\u4e0d\u597d","UserName":"xuquanxi1079","Status":"1","IP":"112.14.7.59","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"ParentUserName":"qq_42931952","ParentNickName":"\u5c0f\u7ef4\u5a05","Avatar":"https:\/\/avatar.csdn.net\/E\/1\/B\/3_xuquanxi1079.jpg","NickName":"TiHarper","date_format":"6\u4e2a\u6708\u524d"}],"info":{"CommentId":"9315613","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-03-13 11:40:50","Content":"\u62ff\u6765\u4e0d\u80fd\u7528","UserName":"qq_42931952","Status":"1","IP":"123.147.250.88","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"Avatar":"https:\/\/avatar.csdn.net\/D\/2\/C\/3_qq_42931952.jpg","NickName":"\u5c0f\u7ef4\u5a05","date_format":"6\u4e2a\u6708\u524d"}}]},"vote":0,"content":"success"}{"result":1,"callback":null,"data":{"count":3,"page_count":1,"floor_count":2,"list":[{"info":{"CommentId":"10066706","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-06-27 23:06:22","Content":"\u8d5e\u4e00\u4e2a\uff01","UserName":"sylfffffffff","Status":"1","IP":"112.94.188.245","IsBoleComment":"0","PKId":"0","Digg":"1","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":["itNewBoy"],"Avatar":"https:\/\/avatar.csdn.net\/1\/6\/B\/3_sylfffffffff.jpg","NickName":"sylfffffffff","date_format":"2\u4e2a\u6708\u524d"}},{"sub":[{"CommentId":"9317282","ArticleId":"83008749","BlogId":"7813532","ParentId":"9315613","PostTime":"2019-03-13 15:37:58","Content":"[reply]qq_42931952[\/reply]\n\u62a5\u9519\uff1f\u9519\u8bef\u4ee3\u7801\uff1f\u81ea\u5df1\u7a0d\u5fae\u5206\u6790\u4e0b\uff0c\u62ff\u6765\u4e3b\u4e49\u53ef\u4e0d\u597d","UserName":"xuquanxi1079","Status":"1","IP":"112.14.7.59","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"ParentUserName":"qq_42931952","ParentNickName":"\u5c0f\u7ef4\u5a05","Avatar":"https:\/\/avatar.csdn.net\/E\/1\/B\/3_xuquanxi1079.jpg","NickName":"TiHarper","date_format":"6\u4e2a\u6708\u524d"}],"info":{"CommentId":"9315613","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-03-13 11:40:50","Content":"\u62ff\u6765\u4e0d\u80fd\u7528","UserName":"qq_42931952","Status":"1","IP":"123.147.250.88","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"Avatar":"https:\/\/avatar.csdn.net\/D\/2\/C\/3_qq_42931952.jpg","NickName":"\u5c0f\u7ef4\u5a05","date_format":"6\u4e2a\u6708\u524d"}}]},"vote":0,"content":"success"}</TabPane>
+                      <TabPane label="TextView"></TabPane>
+                    </Tabs>
+                    <div class="spider-text">控制台</div> -->
+                  </div>
+                </Split>
               </div>
-
-              <Button
-                style=" float: right;font-size:16px;margin-top:5px"
-                @click="consoleFlag=!consoleFlag"
-              >控制台 v</Button>
             </div>
           </Content>
         </Layout>
@@ -81,8 +85,8 @@ export default {
   },
   data() {
     return {
-      split2: 0.5,
-      consoleFlag: true,
+      domHeight: { height: window.innerHeight - 207 + "px" },
+      split2: 0.8,
       currentLanguage: "javascript",
       languageList: [
         {
@@ -134,7 +138,8 @@ export default {
       ],
       modelLanguage: "javascript",
       modelUrl: "",
-      editorHeight: window.innerHeight - 223,
+      editorHeight: window.innerHeight - 247,
+      editorWidth: window.innerWidth - 274,
       options: {
         //  selectOnLineNumbers: true,
         //   roundedSelection: false,

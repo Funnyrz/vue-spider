@@ -52,14 +52,30 @@
     padding: 0px 1.25%;
 }
 
+.spider-split {
+    border: 1px solid #252B45;
+}
+
 .spider-code-com {
     border: solid #252B45 1px;
+}
+
+.ivu-split-trigger-horizontal {
+    background: #252B45 !important;
+}
+
+.bottom-pane, .ivu-split-pane {
+    /* -webkit-tap-highlight-color: transparent; */
+    background: #0C0E1A !important;
+}
+
+.ivu-split-trigger {
+    border: 0px solid #252B45 !important;
 }
 
 .spider-code-core {
     height: 86.7%;
 }
-
 
 .spider-select-language {
     width: 120px !important;
@@ -72,6 +88,7 @@
 }
 
 /* 选择语言的重写 */
+
 .ivu-select-selection {
     color: #FFFFFF;
     background: #191F34 !important;
@@ -80,6 +97,7 @@
 }
 
 /* url选择框的重写 */
+
 .ivu-select-input {
     border-radius: 2px !important;
     height: 30px !important;
@@ -87,6 +105,7 @@
 }
 
 /* 下拉option样式 */
+
 .spider-select-option {
     background: #252C45;
 }
@@ -101,14 +120,8 @@
 
 /* 下拉option样式 end */
 
-
 .spider-console {
     float: right;
-}
-
-.ivu-tabs-bar {
-    border-bottom: 0px solid #dcdee2 !important;
-    margin-bottom: 16px;
 }
 
 .spider-code-tool {
@@ -121,14 +134,34 @@
     margin-left: 1.25%;
 }
 
-.monaco-editor,
-.monaco-editor-background,
-.monaco-editor .margin,
-.monaco-editor .inputarea.ime-input {
+.monaco-editor, .monaco-editor-background, .monaco-editor .margin, .monaco-editor .inputarea.ime-input {
     background-color: #0C0E1A !important;
 }
 
-.minimap .slider-mouseover,
-.minimap-slider {
+.minimap .slider-mouseover, .minimap-slider {
     background-color: #0C0E1A !important;
 }
+
+.spider-text {
+    color: #DEE8F5;
+    float: right;
+    font-size: 14px;
+    margin: 10px 10px;
+}
+
+/* 控制台tab */
+
+.ivu-tabs-tab-focused {
+    background: #191F34;
+}
+
+.ivu-tabs-ink-bar {}
+
+.ivu-tabs-bar {
+    border-bottom: 0px solid #252B45 !important;
+    margin-bottom: 16px;
+}
+
+.ivu-tabs-tabpane {}
+
+/* 控制台tab end*/
