@@ -1,0 +1,134 @@
+.spider-logo {
+    float: left;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.spider-login {
+    float: right;
+}
+
+.ivu-layout-header {
+    padding: 0 0px !important;
+}
+
+.spider-header {
+    margin-bottom: 1.25%;
+    padding: 0px 1.25% !important;
+    height: 6.11%;
+    background: #111325 !important;
+    border-bottom: solid #252B45 1px;
+}
+
+.spider-footer {
+    height: auto;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 1.25%;
+    padding: 0px 1.25%;
+    background: #111325 !important;
+    border-top: solid #252B45 1px;
+}
+
+.spider-footer-btn {
+    padding: 8px 0px;
+    float: right;
+}
+
+.spider-footer-btn button {
+    margin-left: 10px;
+    padding: 0px 20px;
+}
+
+.spider-sider {
+    margin-right: 1.25%;
+    width: 17.71%;
+    border: solid #252B45 1px;
+    background-color: #111325 !important;
+}
+
+.spider-border {
+    padding: 0px 1.25%;
+}
+
+.spider-code-com {
+    border: solid #252B45 1px;
+}
+
+.spider-code-core {
+    height: 86.7%;
+}
+
+
+.spider-select-language {
+    width: 120px !important;
+}
+
+.spider-select-url {
+    height: 30px !important;
+    padding-left: 1.25%;
+    width: 400px !important;
+}
+
+/* 选择语言的重写 */
+.ivu-select-selection {
+    color: #FFFFFF;
+    background: #191F34 !important;
+    border-radius: 2px !important;
+    border: 1px solid #252B45 !important;
+}
+
+/* url选择框的重写 */
+.ivu-select-input {
+    border-radius: 2px !important;
+    height: 30px !important;
+    color: #FFFFFF !important;
+}
+
+/* 下拉option样式 */
+.spider-select-option {
+    background: #252C45;
+}
+
+.ivu-select-item-focus {
+    background: #0062FF !important;
+}
+
+.ivu-select-dropdown {
+    background: #252C45 !important;
+}
+
+/* 下拉option样式 end */
+
+
+.spider-console {
+    float: right;
+}
+
+.ivu-tabs-bar {
+    border-bottom: 0px solid #dcdee2 !important;
+    margin-bottom: 16px;
+}
+
+.spider-code-tool {
+    /* border-bottom: solid #252B45 1px; */
+    padding: 6px 1.25%;
+    background: #191F34;
+}
+
+.spider-code-tool button {
+    margin-left: 1.25%;
+}
+
+.monaco-editor,
+.monaco-editor-background,
+.monaco-editor .margin,
+.monaco-editor .inputarea.ime-input {
+    background-color: #0C0E1A !important;
+}
+
+.minimap .slider-mouseover,
+.minimap-slider {
+    background-color: #0C0E1A !important;
+}
