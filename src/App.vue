@@ -7,12 +7,14 @@
         <div>
           <div class="spider-logo">Spider Robot</div>
           <div class="spider-login">
-            <Button type="info">登录</Button>
+            <Button type="info" @click="showLogin()">登录</Button>
           </div>
         </div>
       </Header>
       <Layout class="spider-border">
-        <Sider hide-trigger class="spider-sider"></Sider>
+        <Sider hide-trigger class="spider-sider">
+          <FTab></FTab>
+        </Sider>
         <Layout>
           <Content class="spider-code-com">
             <div class="spider-code-tool">
@@ -37,10 +39,10 @@
               </Select>
               <Button type="primary" size="small">配置URL</Button>
             </div>
-            <div class="spider-code-core" :style="domHeight">
-              <div class="spider-split" :style="domHeight">
-                <Split v-model="split2" mode="vertical" min="80">
-                  <div slot="top" class="demo-split-pane">
+            <div class="spider-code-core">
+              <div class="spider-split" :style="domHeight" style="overflow:hidden;">
+                <Split v-model="split2" mode="vertical" @on-move-end="changeConsoleSize">
+                  <div slot="top">
                     <MonacoEditor
                       :width="editorWidth"
                       :height="editorHeight"
@@ -51,13 +53,87 @@
                     ></MonacoEditor>
                   </div>
                   <div slot="bottom">
-                    {"result":1,"callback":null,"data":{"count":3,"page_count":1,"floor_count":2,"list":[{"info":{"CommentId":"10066706","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-06-27 23:06:22","Content":"\u8d5e\u4e00\u4e2a\uff01","UserName":"sylfffffffff","Status":"1","IP":"112.94.188.245","IsBoleComment":"0","PKId":"0","Digg":"1","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":["itNewBoy"],"Avatar":"https:\/\/avatar.csdn.net\/1\/6\/B\/3_sylfffffffff.jpg","NickName":"sylfffffffff","date_format":"2\u4e2a\u6708\u524d"}},{"sub":[{"CommentId":"9317282","ArticleId":"83008749","BlogId":"7813532","ParentId":"9315613","PostTime":"2019-03-13 15:37:58","Content":"[reply]qq_42931952[\/reply]\n\u62a5\u9519\uff1f\u9519\u8bef\u4ee3\u7801\uff1f\u81ea\u5df1\u7a0d\u5fae\u5206\u6790\u4e0b\uff0c\u62ff\u6765\u4e3b\u4e49\u53ef\u4e0d\u597d","UserName":"xuquanxi1079","Status":"1","IP":"112.14.7.59","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"ParentUserName":"qq_42931952","ParentNickName":"\u5c0f\u7ef4\u5a05","Avatar":"https:\/\/avatar.csdn.net\/E\/1\/B\/3_xuquanxi1079.jpg","NickName":"TiHarper","date_format":"6\u4e2a\u6708\u524d"}],"info":{"CommentId":"9315613","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-03-13 11:40:50","Content":"\u62ff\u6765\u4e0d\u80fd\u7528","UserName":"qq_42931952","Status":"1","IP":"123.147.250.88","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"Avatar":"https:\/\/avatar.csdn.net\/D\/2\/C\/3_qq_42931952.jpg","NickName":"\u5c0f\u7ef4\u5a05","date_format":"6\u4e2a\u6708\u524d"}}]},"vote":0,"content":"success"}{"result":1,"callback":null,"data":{"count":3,"page_count":1,"floor_count":2,"list":[{"info":{"CommentId":"10066706","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-06-27 23:06:22","Content":"\u8d5e\u4e00\u4e2a\uff01","UserName":"sylfffffffff","Status":"1","IP":"112.94.188.245","IsBoleComment":"0","PKId":"0","Digg":"1","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":["itNewBoy"],"Avatar":"https:\/\/avatar.csdn.net\/1\/6\/B\/3_sylfffffffff.jpg","NickName":"sylfffffffff","date_format":"2\u4e2a\u6708\u524d"}},{"sub":[{"CommentId":"9317282","ArticleId":"83008749","BlogId":"7813532","ParentId":"9315613","PostTime":"2019-03-13 15:37:58","Content":"[reply]qq_42931952[\/reply]\n\u62a5\u9519\uff1f\u9519\u8bef\u4ee3\u7801\uff1f\u81ea\u5df1\u7a0d\u5fae\u5206\u6790\u4e0b\uff0c\u62ff\u6765\u4e3b\u4e49\u53ef\u4e0d\u597d","UserName":"xuquanxi1079","Status":"1","IP":"112.14.7.59","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"ParentUserName":"qq_42931952","ParentNickName":"\u5c0f\u7ef4\u5a05","Avatar":"https:\/\/avatar.csdn.net\/E\/1\/B\/3_xuquanxi1079.jpg","NickName":"TiHarper","date_format":"6\u4e2a\u6708\u524d"}],"info":{"CommentId":"9315613","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-03-13 11:40:50","Content":"\u62ff\u6765\u4e0d\u80fd\u7528","UserName":"qq_42931952","Status":"1","IP":"123.147.250.88","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"Avatar":"https:\/\/avatar.csdn.net\/D\/2\/C\/3_qq_42931952.jpg","NickName":"\u5c0f\u7ef4\u5a05","date_format":"6\u4e2a\u6708\u524d"}}]},"vote":0,"content":"success"}{"result":1,"callback":null,"data":{"count":3,"page_count":1,"floor_count":2,"list":[{"info":{"CommentId":"10066706","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-06-27 23:06:22","Content":"\u8d5e\u4e00\u4e2a\uff01","UserName":"sylfffffffff","Status":"1","IP":"112.94.188.245","IsBoleComment":"0","PKId":"0","Digg":"1","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":["itNewBoy"],"Avatar":"https:\/\/avatar.csdn.net\/1\/6\/B\/3_sylfffffffff.jpg","NickName":"sylfffffffff","date_format":"2\u4e2a\u6708\u524d"}},{"sub":[{"CommentId":"9317282","ArticleId":"83008749","BlogId":"7813532","ParentId":"9315613","PostTime":"2019-03-13 15:37:58","Content":"[reply]qq_42931952[\/reply]\n\u62a5\u9519\uff1f\u9519\u8bef\u4ee3\u7801\uff1f\u81ea\u5df1\u7a0d\u5fae\u5206\u6790\u4e0b\uff0c\u62ff\u6765\u4e3b\u4e49\u53ef\u4e0d\u597d","UserName":"xuquanxi1079","Status":"1","IP":"112.14.7.59","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"ParentUserName":"qq_42931952","ParentNickName":"\u5c0f\u7ef4\u5a05","Avatar":"https:\/\/avatar.csdn.net\/E\/1\/B\/3_xuquanxi1079.jpg","NickName":"TiHarper","date_format":"6\u4e2a\u6708\u524d"}],"info":{"CommentId":"9315613","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-03-13 11:40:50","Content":"\u62ff\u6765\u4e0d\u80fd\u7528","UserName":"qq_42931952","Status":"1","IP":"123.147.250.88","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"Avatar":"https:\/\/avatar.csdn.net\/D\/2\/C\/3_qq_42931952.jpg","NickName":"\u5c0f\u7ef4\u5a05","date_format":"6\u4e2a\u6708\u524d"}}]},"vote":0,"content":"success"}</TabPane>
-                     
-                    <!-- <Tabs style="width:95%; float: left;">
-                      <TabPane label="JSON" style="overflow:hidden;height50px;white-space:nowrap;">{"result":1,"callback":null,"data":{"count":3,"page_count":1,"floor_count":2,"list":[{"info":{"CommentId":"10066706","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-06-27 23:06:22","Content":"\u8d5e\u4e00\u4e2a\uff01","UserName":"sylfffffffff","Status":"1","IP":"112.94.188.245","IsBoleComment":"0","PKId":"0","Digg":"1","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":["itNewBoy"],"Avatar":"https:\/\/avatar.csdn.net\/1\/6\/B\/3_sylfffffffff.jpg","NickName":"sylfffffffff","date_format":"2\u4e2a\u6708\u524d"}},{"sub":[{"CommentId":"9317282","ArticleId":"83008749","BlogId":"7813532","ParentId":"9315613","PostTime":"2019-03-13 15:37:58","Content":"[reply]qq_42931952[\/reply]\n\u62a5\u9519\uff1f\u9519\u8bef\u4ee3\u7801\uff1f\u81ea\u5df1\u7a0d\u5fae\u5206\u6790\u4e0b\uff0c\u62ff\u6765\u4e3b\u4e49\u53ef\u4e0d\u597d","UserName":"xuquanxi1079","Status":"1","IP":"112.14.7.59","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"ParentUserName":"qq_42931952","ParentNickName":"\u5c0f\u7ef4\u5a05","Avatar":"https:\/\/avatar.csdn.net\/E\/1\/B\/3_xuquanxi1079.jpg","NickName":"TiHarper","date_format":"6\u4e2a\u6708\u524d"}],"info":{"CommentId":"9315613","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-03-13 11:40:50","Content":"\u62ff\u6765\u4e0d\u80fd\u7528","UserName":"qq_42931952","Status":"1","IP":"123.147.250.88","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"Avatar":"https:\/\/avatar.csdn.net\/D\/2\/C\/3_qq_42931952.jpg","NickName":"\u5c0f\u7ef4\u5a05","date_format":"6\u4e2a\u6708\u524d"}}]},"vote":0,"content":"success"}{"result":1,"callback":null,"data":{"count":3,"page_count":1,"floor_count":2,"list":[{"info":{"CommentId":"10066706","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-06-27 23:06:22","Content":"\u8d5e\u4e00\u4e2a\uff01","UserName":"sylfffffffff","Status":"1","IP":"112.94.188.245","IsBoleComment":"0","PKId":"0","Digg":"1","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":["itNewBoy"],"Avatar":"https:\/\/avatar.csdn.net\/1\/6\/B\/3_sylfffffffff.jpg","NickName":"sylfffffffff","date_format":"2\u4e2a\u6708\u524d"}},{"sub":[{"CommentId":"9317282","ArticleId":"83008749","BlogId":"7813532","ParentId":"9315613","PostTime":"2019-03-13 15:37:58","Content":"[reply]qq_42931952[\/reply]\n\u62a5\u9519\uff1f\u9519\u8bef\u4ee3\u7801\uff1f\u81ea\u5df1\u7a0d\u5fae\u5206\u6790\u4e0b\uff0c\u62ff\u6765\u4e3b\u4e49\u53ef\u4e0d\u597d","UserName":"xuquanxi1079","Status":"1","IP":"112.14.7.59","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"ParentUserName":"qq_42931952","ParentNickName":"\u5c0f\u7ef4\u5a05","Avatar":"https:\/\/avatar.csdn.net\/E\/1\/B\/3_xuquanxi1079.jpg","NickName":"TiHarper","date_format":"6\u4e2a\u6708\u524d"}],"info":{"CommentId":"9315613","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-03-13 11:40:50","Content":"\u62ff\u6765\u4e0d\u80fd\u7528","UserName":"qq_42931952","Status":"1","IP":"123.147.250.88","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"Avatar":"https:\/\/avatar.csdn.net\/D\/2\/C\/3_qq_42931952.jpg","NickName":"\u5c0f\u7ef4\u5a05","date_format":"6\u4e2a\u6708\u524d"}}]},"vote":0,"content":"success"}{"result":1,"callback":null,"data":{"count":3,"page_count":1,"floor_count":2,"list":[{"info":{"CommentId":"10066706","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-06-27 23:06:22","Content":"\u8d5e\u4e00\u4e2a\uff01","UserName":"sylfffffffff","Status":"1","IP":"112.94.188.245","IsBoleComment":"0","PKId":"0","Digg":"1","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":["itNewBoy"],"Avatar":"https:\/\/avatar.csdn.net\/1\/6\/B\/3_sylfffffffff.jpg","NickName":"sylfffffffff","date_format":"2\u4e2a\u6708\u524d"}},{"sub":[{"CommentId":"9317282","ArticleId":"83008749","BlogId":"7813532","ParentId":"9315613","PostTime":"2019-03-13 15:37:58","Content":"[reply]qq_42931952[\/reply]\n\u62a5\u9519\uff1f\u9519\u8bef\u4ee3\u7801\uff1f\u81ea\u5df1\u7a0d\u5fae\u5206\u6790\u4e0b\uff0c\u62ff\u6765\u4e3b\u4e49\u53ef\u4e0d\u597d","UserName":"xuquanxi1079","Status":"1","IP":"112.14.7.59","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"ParentUserName":"qq_42931952","ParentNickName":"\u5c0f\u7ef4\u5a05","Avatar":"https:\/\/avatar.csdn.net\/E\/1\/B\/3_xuquanxi1079.jpg","NickName":"TiHarper","date_format":"6\u4e2a\u6708\u524d"}],"info":{"CommentId":"9315613","ArticleId":"83008749","BlogId":"7813532","ParentId":"0","PostTime":"2019-03-13 11:40:50","Content":"\u62ff\u6765\u4e0d\u80fd\u7528","UserName":"qq_42931952","Status":"1","IP":"123.147.250.88","IsBoleComment":"0","PKId":"0","Digg":"0","Bury":"0","SubjectType":"-1","WeixinArticleId":"0","digg_arr":[],"Avatar":"https:\/\/avatar.csdn.net\/D\/2\/C\/3_qq_42931952.jpg","NickName":"\u5c0f\u7ef4\u5a05","date_format":"6\u4e2a\u6708\u524d"}}]},"vote":0,"content":"success"}</TabPane>
+                    <Tabs>
+                      <TabPane label="JSON">
+                        <Scroll :height="scrollHeight" class="spider-console-content">
+                          周二早上好，有没有听周杰伦的最新单曲？
+                          周杰伦回归歌坛
+                          @新京报【周杰伦回归歌坛，《说好不哭》销量突破两百万】9月16日晚上11:00，周杰伦最新单曲《说好不哭》上线。在新歌上线25分钟时，这首单曲在QQ音乐、酷我音乐、酷狗音乐三个音乐平台上总销售量约229万，销售额突破680万元。
+                          如今，距离周杰伦上次推出专辑《周杰伦的床边故事》已经过去了三年多的时间，离上次推出新歌《不爱我就拉倒》也已过去了一年有余。此次新歌依然由周杰伦搭档词人方文山合作完成，主题围绕“成全”和“约定”，在歌曲的后半段中，还出现了五月天主唱阿信的合唱声音。
+                          美油创11年以来最大单日涨幅
+                          @每日经济新闻【美油创逾11年最大单日涨幅】纽约油价16日上涨，10月交货的纽约轻质原油期货价格收涨8.05美元，涨幅14.68%，报62.90美元/桶，创2008年12月份以来最大单日涨幅。布伦特11月原油期货收涨8.80美元，涨幅14.61%，至少创1988年以来最大单日涨幅，报69.02美元/桶。
+                          有市场消息称，沙特阿美Abqaiq工厂未来数周都将无法恢复大部分石油产出，沙特事件已经超出市场的预期，而且事态有扩大的趋势。
+                          今年物价情况如何
+                          @北京青年报【国家统计局：下一步加大逆周期调节力度】国家统计局新闻发言人付凌晖昨天在国务院新闻办公室举行的新闻发布会上，对外介绍了8月份国民经济运行情况。
+                          他表示，前8个月CPI同比上涨2.4%，比7月略微扩大0.1个百分点。从8月份当月情况来看，CPI上涨2.8%，与7月持平，总体来看我国价格形势保持稳定。从当前情况来看，价格上涨结构性特点比较明显。首先，目前价格上涨主要是由食品价格上涨影响的，8月份食品价格同比上涨10%，涨幅比7月扩大0.9个百分点。影响当月同比涨幅1.9个百分点，占2.8%的同比涨幅接近70%，其中猪肉价格上涨46.7%，涨幅比7月扩大19.7个百分点，影响当月价格涨幅1.1个百分点，接近全部价格涨幅的40%。所以，CPI上涨主要受食品价格的上涨影响。
+                          而前期涨幅比较高的食品比如鲜菜、鲜果等价格涨幅等都出现了不同程度的回落。鲜菜8月同比下降了0.8%。前期涨幅较大的鲜果，8月同比涨幅也回落到10个百分点以内。同时，国内非食品价格稳定。
+                          楼市降温
+                          @新京报【楼市降温，商品房销售面积同比再降】9月16日，国家统计局公布了今年1-8月份全国房地产开发投资和销售情况，综合近几个月数据发现，房地产开发投资、商品房销售面积及房地产开发企业到位资金等多项指标均呈现出连续下降或增速回落情况，楼市降温显著。其中，房地产开发投资数据已在5-8月份连续四个月出现增幅回落情况。
+                          此外，商品房销售面积数据也有所降温。数据显示，今年1-8月份，商品房销售面积为101849万平方米，同比下降0.6%。新京报记者注意到，这已经是今年以来商品房销售面积连续七个月同比负增长。
+                          中原地产首席分析师张大伟认为，从整体看，市场在5-6月反弹后再次进入平稳周期，单月数据环比及同比均出现继续退烧现象。“不论是投资数据还是销售数据，在收紧调控的影响下，市场再次出现放缓迹象。”
+                          郭台铭放弃竞选
+                          @人民日报【郭台铭：决定不参与明年的台湾地区领导人选举】台湾鸿海集团创办人郭台铭宣布，决定不参与明年的台湾地区领导人选举。
+                          郭台铭表示，参选的初衷，是希望能够带领台湾社会齐心拼经济，但投身选战以来，看到的却是一些政治人物为了私利，挑起阶级、仇恨、对立等民粹，经过再三思考之后，希望让社会在关注领导人的选择时，能够回归理性思考与政策层面的讨论，决定不参与明年的选举。
+                          郭台铭对支持者表示感谢并表示，不参与选举，不表示放弃参与政治事务，将来会持续积极推动他本人所提出的政策，期盼能够有更多有理念的朋友，愿意一起为台湾继续努力，让台湾有着和平、安定、经济与未来。
+                          此前，郭台铭宣布退出中国国民党。有分析认为，退出中国国民党跟郭台铭有意继续角逐 “大选”有关。
+                          周二早上好，有没有听周杰伦的最新单曲？
+                          周杰伦回归歌坛
+                          @新京报【周杰伦回归歌坛，《说好不哭》销量突破两百万】9月16日晚上11:00，周杰伦最新单曲《说好不哭》上线。在新歌上线25分钟时，这首单曲在QQ音乐、酷我音乐、酷狗音乐三个音乐平台上总销售量约229万，销售额突破680万元。
+                          如今，距离周杰伦上次推出专辑《周杰伦的床边故事》已经过去了三年多的时间，离上次推出新歌《不爱我就拉倒》也已过去了一年有余。此次新歌依然由周杰伦搭档词人方文山合作完成，主题围绕“成全”和“约定”，在歌曲的后半段中，还出现了五月天主唱阿信的合唱声音。
+                          美油创11年以来最大单日涨幅
+                          @每日经济新闻【美油创逾11年最大单日涨幅】纽约油价16日上涨，10月交货的纽约轻质原油期货价格收涨8.05美元，涨幅14.68%，报62.90美元/桶，创2008年12月份以来最大单日涨幅。布伦特11月原油期货收涨8.80美元，涨幅14.61%，至少创1988年以来最大单日涨幅，报69.02美元/桶。
+                          有市场消息称，沙特阿美Abqaiq工厂未来数周都将无法恢复大部分石油产出，沙特事件已经超出市场的预期，而且事态有扩大的趋势。
+                          今年物价情况如何
+                          @北京青年报【国家统计局：下一步加大逆周期调节力度】国家统计局新闻发言人付凌晖昨天在国务院新闻办公室举行的新闻发布会上，对外介绍了8月份国民经济运行情况。
+                          他表示，前8个月CPI同比上涨2.4%，比7月略微扩大0.1个百分点。从8月份当月情况来看，CPI上涨2.8%，与7月持平，总体来看我国价格形势保持稳定。从当前情况来看，价格上涨结构性特点比较明显。首先，目前价格上涨主要是由食品价格上涨影响的，8月份食品价格同比上涨10%，涨幅比7月扩大0.9个百分点。影响当月同比涨幅1.9个百分点，占2.8%的同比涨幅接近70%，其中猪肉价格上涨46.7%，涨幅比7月扩大19.7个百分点，影响当月价格涨幅1.1个百分点，接近全部价格涨幅的40%。所以，CPI上涨主要受食品价格的上涨影响。
+                          而前期涨幅比较高的食品比如鲜菜、鲜果等价格涨幅等都出现了不同程度的回落。鲜菜8月同比下降了0.8%。前期涨幅较大的鲜果，8月同比涨幅也回落到10个百分点以内。同时，国内非食品价格稳定。
+                          楼市降温
+                          @新京报【楼市降温，商品房销售面积同比再降】9月16日，国家统计局公布了今年1-8月份全国房地产开发投资和销售情况，综合近几个月数据发现，房地产开发投资、商品房销售面积及房地产开发企业到位资金等多项指标均呈现出连续下降或增速回落情况，楼市降温显著。其中，房地产开发投资数据已在5-8月份连续四个月出现增幅回落情况。
+                          此外，商品房销售面积数据也有所降温。数据显示，今年1-8月份，商品房销售面积为101849万平方米，同比下降0.6%。新京报记者注意到，这已经是今年以来商品房销售面积连续七个月同比负增长。
+                          中原地产首席分析师张大伟认为，从整体看，市场在5-6月反弹后再次进入平稳周期，单月数据环比及同比均出现继续退烧现象。“不论是投资数据还是销售数据，在收紧调控的影响下，市场再次出现放缓迹象。”
+                          郭台铭放弃竞选
+                          @人民日报【郭台铭：决定不参与明年的台湾地区领导人选举】台湾鸿海集团创办人郭台铭宣布，决定不参与明年的台湾地区领导人选举。
+                          郭台铭表示，参选的初衷，是希望能够带领台湾社会齐心拼经济，但投身选战以来，看到的却是一些政治人物为了私利，挑起阶级、仇恨、对立等民粹，经过再三思考之后，希望让社会在关注领导人的选择时，能够回归理性思考与政策层面的讨论，决定不参与明年的选举。
+                          郭台铭对支持者表示感谢并表示，不参与选举，不表示放弃参与政治事务，将来会持续积极推动他本人所提出的政策，期盼能够有更多有理念的朋友，愿意一起为台湾继续努力，让台湾有着和平、安定、经济与未来。
+                          此前，郭台铭宣布退出中国国民党。有分析认为， 周二早上好，有没有听周杰伦的最新单曲？
+                          周杰伦回归歌坛
+                          @新京报【周杰伦回归歌坛，《说好不哭》销量突破两百万】9月16日晚上11:00，周杰伦最新单曲《说好不哭》上线。在新歌上线25分钟时，这首单曲在QQ音乐、酷我音乐、酷狗音乐三个音乐平台上总销售量约229万，销售额突破680万元。
+                          如今，距离周杰伦上次推出专辑《周杰伦的床边故事》已经过去了三年多的时间，离上次推出新歌《不爱我就拉倒》也已过去了一年有余。此次新歌依然由周杰伦搭档词人方文山合作完成，主题围绕“成全”和“约定”，在歌曲的后半段中，还出现了五月天主唱阿信的合唱声音。
+                          美油创11年以来最大单日涨幅
+                          @每日经济新闻【美油创逾11年最大单日涨幅】纽约油价16日上涨，10月交货的纽约轻质原油期货价格收涨8.05美元，涨幅14.68%，报62.90美元/桶，创2008年12月份以来最大单日涨幅。布伦特11月原油期货收涨8.80美元，涨幅14.61%，至少创1988年以来最大单日涨幅，报69.02美元/桶。
+                          有市场消息称，沙特阿美Abqaiq工厂未来数周都将无法恢复大部分石油产出，沙特事件已经超出市场的预期，而且事态有扩大的趋势。
+                          今年物价情况如何
+                          @北京青年报【国家统计局：下一步加大逆周期调节力度】国家统计局新闻发言人付凌晖昨天在国务院新闻办公室举行的新闻发布会上，对外介绍了8月份国民经济运行情况。
+                          他表示，前8个月CPI同比上涨2.4%，比7月略微扩大0.1个百分点。从8月份当月情况来看，CPI上涨2.8%，与7月持平，总体来看我国价格形势保持稳定。从当前情况来看，价格上涨结构性特点比较明显。首先，目前价格上涨主要是由食品价格上涨影响的，8月份食品价格同比上涨10%，涨幅比7月扩大0.9个百分点。影响当月同比涨幅1.9个百分点，占2.8%的同比涨幅接近70%，其中猪肉价格上涨46.7%，涨幅比7月扩大19.7个百分点，影响当月价格涨幅1.1个百分点，接近全部价格涨幅的40%。所以，CPI上涨主要受食品价格的上涨影响。
+                          而前期涨幅比较高的食品比如鲜菜、鲜果等价格涨幅等都出现了不同程度的回落。鲜菜8月同比下降了0.8%。前期涨幅较大的鲜果，8月同比涨幅也回落到10个百分点以内。同时，国内非食品价格稳定。
+                          楼市降温
+                          @新京报【楼市降温，商品房销售面积同比再降】9月16日，国家统计局公布了今年1-8月份全国房地产开发投资和销售情况，综合近几个月数据发现，房地产开发投资、商品房销售面积及房地产开发企业到位资金等多项指标均呈现出连续下降或增速回落情况，楼市降温显著。其中，房地产开发投资数据已在5-8月份连续四个月出现增幅回落情况。
+                          此外，商品房销售面积数据也有所降温。数据显示，今年1-8月份，商品房销售面积为101849万平方米，同比下降0.6%。新京报记者注意到，这已经是今年以来商品房销售面积连续七个月同比负增长。
+                          中原地产首席分析师张大伟认为，从整体看，市场在5-6月反弹后再次进入平稳周期，单月数据环比及同比均出现继续退烧现象。“不论是投资数据还是销售数据，在收紧调控的影响下，市场再次出现放缓迹象。”
+                          郭台铭放弃竞选
+                          @人民日报【郭台铭：决定不参与明年的台湾地区领导人选举】台湾鸿海集团创办人郭台铭宣布，决定不参与明年的台湾地区领导人选举。
+                          郭台铭表示，参选的初衷，是希望能够带领台湾社会齐心拼经济，但投身选战以来，看到的却是一些政治人物为了私利，挑起阶级、仇恨、对立等民粹，经过再三思考之后，希望让社会在关注领导人的选择时，能够回归理性思考与政策层面的讨论，决定不参与明年的选举。
+                          郭台铭对支持者表示感谢并表示，不参与选举，不表示放弃参与政治事务，将来会持续积极推动他本人所提出的政策，期盼能够有更多有理念的朋友，愿意一起为台湾继续努力，让台湾有着和平、安定、经济与未来。
+                          此前，郭台铭宣布退出中国国民党。有分析认为，
+                          sdsfsdfdsfd
+                          @北京青年报【国家统计局：下一步加大逆周期调节力度】国家统计局新闻发言人付凌晖昨天在国务院新闻办公室举行的新闻发布会上，对外介绍了8月份国民经济运行情况。
+                          他表示，前8个月CPI同比上涨2.4%，比7月略微扩大0.1个百分点。从8月份当月情况来看，CPI上涨2.8%，与7月持平，总体来看我国价格形势保持稳定。从当前情况来看，价格上涨结构性特点比较明显。首先，目前价格上涨主要是由食品价格上涨影响的，8月份食品价格同比上涨10%，涨幅比7月扩大0.9个百分点。影响当月同比涨幅1.9个百分点，占2.8%的同比涨幅接近70%，其中猪肉价格上涨46.7%，涨幅比7月扩大19.7个百分点，影响当月价格涨幅1.1个百分点，接近全部价格涨幅的40%。所以，CPI上涨主要受食品价格的上涨影响。
+                          而前期涨幅比较高的食品比如鲜菜、鲜果等价格涨幅等都出现了不同程度的回落。鲜菜8月同比下降了0.8%。前期涨幅较大的鲜果，8月同比涨幅也回落到10个百分点以内。同时，国内非食品价格稳定。
+                          楼市降温
+                          @新京报【楼市降温，商品房销售面积同比再降】9月16日，国家统计局公布了今年1-8月份全国房地产开发投资和销售情况，综合近几个月数据发现，房地产开发投资、商品房销售面积及房地产开发企业到位资金等多项指标均呈现出连续下降或增速回落情况，楼市降温显著。其中，房地产开发投资数据已在5-8月份连续四个月出现增幅回落情况。
+                          此外，商品房销售面积数据也有所降温。数据显示，今年1-8月份，商品房销售面积为101849万平方米，同比下降0.6%。新京报记者注意到，这已经是今年以来商品房销售面积连续七个月同比负增长。
+                          中原地产首席分析师张大伟认为，从整体看，市场在5-6月反弹后再次进入平稳周期，单月数据环比及同比均出现继续退烧现象。“不论是投资数据还是销售数据，在收紧调控的影响下，市场再次出现放缓迹象。”
+                          郭台铭放弃竞选
+                          @人民日报【郭台铭：决定不参与明年的台湾地区领导人选举】台湾鸿海集团创办人郭台铭宣布，决定不参与明年的台湾地区领导人选举。
+                          郭台铭表示，参选的初衷，是希望能够带领台湾社会齐心拼经济，但投身选战以来，看到的却是一些政治人物为了私利，挑起阶级、仇恨、对立等民粹，经过再三思考之后，希望让社会在关注领导人的选择时，能够回归理性思考与政策层面的讨论，决定不参与明年的选举。
+                          郭台铭对支持者表示感谢并表示，不参与选举，不表示放弃参与政治事务，将来会持续积极推动他本人所提出的政策，期盼能够有更多有理念的朋友，愿意一起为台湾继续努力，让台湾有着和平、安定、经济与未来。
+                          此前，郭台铭宣布退出中国国民党。有分析认为，
+                          woshi谁呀呀呀呀呀呀呀呀呀呀呀
+                        </Scroll>
+                      </TabPane>
                       <TabPane label="TextView"></TabPane>
                     </Tabs>
-                    <div class="spider-text">控制台</div> -->
+                    <!-- <div class="spider-text">控制台</div> -->
                   </div>
                 </Split>
               </div>
@@ -72,19 +148,27 @@
         </div>
       </div>
     </Layout>
+    <Login :loginModal="loginModal"></Login>
   </div>
 </template>
 <script>
 // import MyEditor from "./components/MyEditor";
 import "./static/css/index.css";
 import MonacoEditor from "monaco-editor-vue";
+import FTab from "./components/F-Tab";
+import Login from "./components/login-reg/login";
 export default {
   name: "App",
   components: {
-    MonacoEditor
+    MonacoEditor,
+    FTab,
+    Login
   },
   data() {
     return {
+      loginModal: false,
+      spiderTabShow: true,
+      scrollHeight: 80, //控制台滚动区域高度
       domHeight: { height: window.innerHeight - 207 + "px" },
       split2: 0.8,
       currentLanguage: "javascript",
@@ -161,7 +245,15 @@ export default {
     },
     changeLanguage(value) {
       this.currentLanguage = value;
+    },
+    changeConsoleSize() {
+      var he = document.getElementsByClassName("bottom-pane")[0].offsetHeight; //控制台的高度
+      this.scrollHeight = he - 50; //控制台滚动区域高度
+    },
+    showLogin() {
+      this.loginModal = true;
     }
-  }
+  },
+  mounted() {}
 };
 </script>

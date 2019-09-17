@@ -64,7 +64,8 @@
     background: #252B45 !important;
 }
 
-.bottom-pane, .ivu-split-pane {
+.bottom-pane,
+.ivu-split-pane {
     /* -webkit-tap-highlight-color: transparent; */
     background: #0C0E1A !important;
 }
@@ -90,6 +91,8 @@
 /* 选择语言的重写 */
 
 .ivu-select-selection {
+    font-weight: 400px !important;
+    font-size: 14px !important;
     color: #FFFFFF;
     background: #191F34 !important;
     border-radius: 2px !important;
@@ -99,9 +102,11 @@
 /* url选择框的重写 */
 
 .ivu-select-input {
+    font-weight: 400px;
+    font-size: 14px !important;
     border-radius: 2px !important;
     height: 30px !important;
-    color: #FFFFFF !important;
+    color: #DEE8F5 !important;
 }
 
 /* 下拉option样式 */
@@ -115,7 +120,12 @@
 }
 
 .ivu-select-dropdown {
+    color: #808AB8 !important;
     background: #252C45 !important;
+}
+
+.ivu-select-item {
+    color: #808AB8 !important;
 }
 
 /* 下拉option样式 end */
@@ -134,11 +144,15 @@
     margin-left: 1.25%;
 }
 
-.monaco-editor, .monaco-editor-background, .monaco-editor .margin, .monaco-editor .inputarea.ime-input {
+.monaco-editor,
+.monaco-editor-background,
+.monaco-editor .margin,
+.monaco-editor .inputarea.ime-input {
     background-color: #0C0E1A !important;
 }
 
-.minimap .slider-mouseover, .minimap-slider {
+.minimap .slider-mouseover,
+.minimap-slider {
     background-color: #0C0E1A !important;
 }
 
@@ -155,13 +169,13 @@
     background: #191F34;
 }
 
-.ivu-tabs-ink-bar {}
-
 .ivu-tabs-bar {
     border-bottom: 0px solid #252B45 !important;
-    margin-bottom: 16px;
+    margin-bottom: 5px;
 }
 
-.ivu-tabs-tabpane {}
+.spider-console-content {
+    padding: 0px 10px;
+}
 
 /* 控制台tab end*/

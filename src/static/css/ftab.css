@@ -1,0 +1,17 @@
+.spider-tab {
+    cursor: pointer;
+    width: 50%;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "PingFangSC";
+    height: 45px;
+    padding-top: 11px;
+    text-align: center;
+    background: #252B45;
+    color: #808AB8;
+}
+
+.spider-tab-active {
+    color: #DEE8F5;
+    background: #111325;
+}
