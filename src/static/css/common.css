@@ -26,7 +26,6 @@ body {
 
 .ivu-btn-info {
     border-radius: 1px;
-    width: auto;
     height: 35px;
     color: #00F5F0;
     background-color: #44000000;
@@ -35,6 +34,62 @@ body {
 
 .ivu-layout {
     background-color: #111325;
+}
+
+.layout-margin-top-10 {
+    margin-top: 10px;
+}
+
+.layout-margin-top-20 {
+    margin-top: 20px;
+}
+
+.layout-margin-top-30 {
+    margin-top: 30px;
+}
+
+.layout-margin-top-40 {
+    margin-top: 40px;
+}
+
+.layout-padding-top-10 {
+    padding-top: 10px;
+}
+
+.layout-padding-top-20 {
+    padding-top: 20px;
+}
+
+.layout-padding-top-30 {
+    padding-top: 30px;
+}
+
+.layout-margin-bottom-10 {
+    margin-top: 10px;
+}
+
+.layout-margin-bottom-20 {
+    margin-top: 20px;
+}
+
+.layout-margin-bottom-30 {
+    margin-top: 30px;
+}
+
+.layout-margin-bottom-40 {
+    margin-bottom: 40px;
+}
+
+.layout-padding-bottom-10 {
+    padding-bottom: 10px;
+}
+
+.layout-padding-bottom-20 {
+    padding-bottom: 20px;
+}
+
+.layout-padding-bottom-30 {
+    padding-bottom: 30px;
 }
 
 .layout-left {

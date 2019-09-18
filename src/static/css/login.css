@@ -1,0 +1,70 @@
+.ivu-modal-header {
+    border-bottom: 0px solid #e8eaec !important;
+}
+
+.ivu-modal-footer {
+    border-top: 0px solid #e8eaec !important;
+}
+
+.ivu-modal-content {
+    padding: 9px;
+    background-color: #111325 !important;
+}
+
+.ivu-modal-close {
+    padding: 9px;
+}
+
+.ivu-modal-header p,
+.ivu-modal-header-inner {
+    color: #DEE8F5 !important;
+    font-size: 18px;
+}
+
+.ivu-input {
+    color: #808AB8 !important;
+    background: #111325 !important;
+    border-radius: 1px;
+    border: 1px solid #252B45 !important;
+
+}
+
+.spider-login-input {
+    padding-top: 20px;
+    background: #111325 !important;
+}
+
+.spider-login-text {
+    color: #DEE8F5;
+    font-size: 14px;
+    font-family: PingFangSC;
+    font-weight: 400;
+}
+
+.ivu-form-item-error .ivu-input:hover {
+    border-color: #FF5E5E !important;
+}
+
+.ivu-form-item-error .ivu-input {
+    border-color: #FF5E5E !important;
+}
+
+.ivu-form-item-error-tip {
+    color: #FF5E5E !important;
+}
+
+.ivu-message-notice-content {
+    color: #DEE8F5 !important;
+    background: #0162FF !important;
+}
+
+.ivu-message-success .ivu-icon {
+    color: none !important;
+}
+
+.spider-reg-text {
+    font-size: 18px;
+    color: #DEE8F5;
+    text-align: center;
+    font-family: PingFangSC;
+}
