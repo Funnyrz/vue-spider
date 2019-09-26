@@ -46,7 +46,7 @@
                   :key="item.value"
                 >{{ item.label }}</Option>
               </Select>
-              <Button type="primary" size="small">配置URL</Button>
+              <Button type="primary" size="small" @click="urlModal=true">配置URL</Button>
             </div>
             <div class="spider-code-core">
               <div class="spider-split" :style="domHeight" style="overflow:hidden;">
@@ -102,6 +102,27 @@
           <a type="text" class="layout-left spider-login-text" @click="goReg">注册</a>
           <a type="text" class="spider-login-text">忘记密码</a>
         </div>
+      </div>
+    </Modal>
+    <Modal
+      title="配置URL"
+      v-model="urlModal"
+      class-name="vertical-center-modal"
+      width="580"
+      :mask-closable="false"
+    >
+      <!-- <div slot="header"></div> -->
+      <Select v-model="modelLanguage" class="spider-select-language" @on-change="changeLanguage">
+        <Option
+          class="spider-select-option"
+          v-for="item in languageList"
+          :value="item.value"
+          :key="item.value"
+        >{{ item.label }}</Option>
+      </Select>
+      <Input class="spider-select-url" placeholder="请输入URL" width="100%" />
+      <div slot="footer">
+        <Button type="primary">确定</Button>
       </div>
     </Modal>
   </div>

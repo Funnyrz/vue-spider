@@ -14,6 +14,7 @@
         },
         data() {
             return {
+                urlModal: false,
                 loginModalTitle: "登录",
                 loginIsShow: true,
                 loginModal: false,
