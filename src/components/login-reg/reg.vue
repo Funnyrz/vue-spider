@@ -55,18 +55,57 @@ export default {
     goNext() {
       if (this.emailFlag) {
         this.handleSubmit("regData");
-        window.console.log(this.validFormFlag);
         if (!this.validFormFlag) {
           return;
         }
-        this.emailFlag = !this.emailFlag;
-        this.codeFlag = !this.codeFlag;
-        this.buttonTitle = "验证";
-        this.$Message.success({
-          content: "已向您的邮箱发送一条验证邮件,请登录邮箱",
-          duration: 5
+        this.$Spin.show();
+        this.$get("/auth/register_email", {
+          email: this.regData.email
+        }).then(response => {
+          if (response.status != 200) {
+            this.$Spin.hide();
+            this.$Message.error({
+              content: "请求异常",
+              duration: 5
+            });
+            return;
+          }
+          if (response.rspBody) {
+            this.$Spin.hide();
+            this.$Message.error({
+              content: "该邮箱已被注册",
+              duration: 5
+            });
+            return;
+          }
+          this.$get("/auth/sendCode", {
+            email: this.regData.email
+          }).then(response => {
+            this.$Spin.hide();
+            if (response.status != 200) {
+              this.$Message.error({
+                content: "请求异常",
+                duration: 5
+              });
+              return;
+            }
+            if (!response.rspBody) {
+              this.$Message.error({
+                content: "验证码下发失败",
+                duration: 5
+              });
+              return;
+            }
+            this.emailFlag = !this.emailFlag;
+            this.codeFlag = !this.codeFlag;
+            this.buttonTitle = "验证";
+            this.$Message.success({
+              content: "已向您的邮箱发送一条验证邮件,请登录邮箱",
+              duration: 5
+            });
+            return;
+          });
         });
-        return;
       }
       if (this.codeFlag) {
         this.handleSubmit("regData");
@@ -74,11 +113,29 @@ export default {
         if (!this.validFormFlag) {
           return;
         }
-        this.codeFlag = !this.codeFlag;
-        this.regSuccFlag = !this.regSuccFlag;
-        this.isRegSucc = true;
-        this.buttonTitle = "前往登录";
-        return;
+        this.$Spin.show();
+        this.$get("/auth/authCode/" + this.regData.code).then(response => {
+          this.$Spin.hide();
+          if (response.status != 200) {
+            this.$Message.error({
+              content: "请求异常",
+              duration: 5
+            });
+            return;
+          }
+          if (!response.rspBody) {
+            this.$Message.error({
+              content: "验证码不正确",
+              duration: 5
+            });
+            return;
+          }
+          this.codeFlag = !this.codeFlag;
+          this.regSuccFlag = !this.regSuccFlag;
+          this.isRegSucc = true;
+          this.buttonTitle = "前往登录";
+          return;
+        });
       }
       if (this.isRegSucc) {
         this.$emit("regValue", true);

@@ -4,6 +4,7 @@
     import FTab from "./tabs";
     import Login from "./login-reg/login";
     import Reg from "./login-reg/reg";
+    import AES from "../utils/AES";
     export default {
         name: "App",
         components: {
@@ -116,5 +117,7 @@
                 this.loginIsShow = data;
             }
         },
-        mounted() {}
+        mounted() {
+            window.console.log(AES.encrypt("746108479@qq.com"))
+        }
     };
