@@ -63,13 +63,16 @@
                   </div>
                   <div slot="bottom">
                     <Tabs>
-                      <TabPane label="JSON">
-                        <Scroll
-                          :height="scrollHeight"
-                          class="spider-console-content"
-                        >{{consoleValue}}</Scroll>
+                      <TabPane label="执行结果">
+                        <Scroll :height="scrollHeight" class="spider-console-content">
+                          <pre>{{resultValue}}</pre>
+                        </Scroll>
                       </TabPane>
-                      <TabPane label="TextView"></TabPane>
+                      <TabPane label="输出日志">
+                        <Scroll :height="scrollHeight" class="spider-console-content">
+                          <pre>{{consoleValue}}</pre>
+                        </Scroll>
+                      </TabPane>
                     </Tabs>
                     <!-- <div class="spider-text">控制台</div> -->
                   </div>

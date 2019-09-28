@@ -16,6 +16,7 @@
         data() {
             return {
                 consoleValue: "",
+                resultValue: "",
                 urlModal: false,
                 loginModalTitle: "登录",
                 loginIsShow: true,
@@ -124,7 +125,7 @@
                 var codeObj = {
                     code: this.codeValue,
                     optionsVo: {
-                        url: "http://www.shu800.com/xinggan/",
+                        url: "http://zxacn.com/",
                         method: "GET"
                     },
                     taskType: "JS"
@@ -144,23 +145,32 @@
                     var taskSeq = response.taskSeq;
 
                     var t1 = window.setInterval(() => {
-                        this.$get("/crawler/manage/getTaskResult/" + taskSeq).then(response => {
-                            if ("200" == response.status) {
-                                this.$Spin.hide();
+                            this.$get("/crawler/manage/getTaskResult/" + taskSeq).then(response => {
+                                if ("200" == response.status) {
+                                    this.$Spin.hide();
+                                    window.clearInterval(t1);
+                                    this.consoleValue = response.prints;
+                                    this.resultValue = response.items;
+                                    return;
+                                }
+                                if ("-10000" == response.status) {
+                                    this.$Spin.hide();
+                                    window.clearInterval(t1);
+                                    this.consoleValue = response.errMsg;
+                                    return;
+                                }
+                            }).catch(err => {
+                                window.console.log(err)
                                 window.clearInterval(t1);
-                                this.consoleValue = response.prints;
-                            }
-                        }).catch(err => {
-                            window.console.log(err)
-                            window.clearInterval(t1);
-                            this.$Spin.hide();
-                            this.$Message.error({
-                                content: "请求异常",
-                                duration: 5
+                                this.$Spin.hide();
+                                this.$Message.error({
+                                    content: "请求异常",
+                                    duration: 5
+                                });
+                                return;
                             });
-                            return;
-                        });
-                    }, 1000)
+                        },
+                        1000)
 
                 }).catch(err => {
                     window.console.log("err:----")

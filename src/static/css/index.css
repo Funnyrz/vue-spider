@@ -175,6 +175,8 @@
 }
 
 .spider-console-content {
+    color: rgba(112, 148, 148, 0.925);
+    font-size: 14px;
     padding: 0px 10px;
 }
 
