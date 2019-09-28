@@ -7,7 +7,7 @@ import axios from 'axios'
 axios.defaults.timeout = 10000
 
 //请求头
-axios.defaults.headers.post['Content=Type'] = 'application/json'
+axios.defaults.headers.post['Content-Type'] = 'application/json'
 
 //请求拦截
 axios.interceptors.request.use(
@@ -24,6 +24,7 @@ axios.interceptors.response.use(
     response => {
         // 如果返回的状态码为200，说明接口请求成功，可以正常拿到数据 
         // 否则的话抛出错误
+        window.console.log("响应:----" + response)
         if (response.status === 200) {
             return Promise.resolve(response)
         } else {
@@ -34,6 +35,7 @@ axios.interceptors.response.use(
     // 这里可以跟你们的后台开发人员协商好统一的错误状态码  
     // 然后根据返回的状态码进行一些操作，例如登录过期提示，错误提示等等
     error => {
+        window.console.log("响应:----" + error)
         if (error.response.status) {
             // switch (error.response.status) {
             // 401: 未登录  
@@ -91,9 +93,9 @@ export function get(url, params = '') {
 
 export function post(url, params) {
     return new Promise((resolve, reject) => {
-        axios.post(url, {
+        axios.post(url,
             params
-        }).then(res => {
+        ).then(res => {
             resolve(res.data)
         }).catch(err => {
             reject(err.data)

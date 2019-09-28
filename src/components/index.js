@@ -15,6 +15,7 @@
         },
         data() {
             return {
+                consoleValue: "",
                 urlModal: false,
                 loginModalTitle: "登录",
                 loginIsShow: true,
@@ -87,12 +88,14 @@
                     //   autoIndent: true //自动布局
                     //quickSuggestionsDelay: 500,   //代码提示延时
                     //Monaco Editor Options
-                }
+                },
+                codeValue: ""
             };
         },
         methods: {
             onChange(value) {
-                window.console.log(this.editorHeight + "---" + value);
+                this.codeValue = value;
+                // window.console.log(this.editorHeight + "---" + value);
             },
             changeLanguage(value) {
                 this.currentLanguage = value;
@@ -115,9 +118,52 @@
             },
             updateRegShow(data) {
                 this.loginIsShow = data;
+            },
+            runCode() {
+                this.consoleValue = "";
+                var codeObj = {
+                    code: this.codeValue,
+                    optionsVo: {
+                        url: "http://www.shu800.com/xinggan/",
+                        method: "GET"
+                    },
+                    taskType: "JS"
+                }
+                var params = {
+                    "data": AES.encrypt(JSON.stringify(codeObj))
+                }
+                this.$Spin.show();
+                this.$post("/compile/commit/code", params).then(response => {
+                    this.$Spin.hide();
+                    if (response.status != 200) {
+                        this.$Message.error({
+                            content: "请求异常",
+                            duration: 5
+                        });
+                        return;
+                    }
+                    var taskSeq = response.taskSeq;
+
+                    var t1 = window.setInterval(() => {
+                        this.$get("/crawler/manage/getTaskResult/" + taskSeq).then(response => {
+                            if ("200" == response.status) {
+                                window.clearInterval(t1);
+                                this.consoleValue = response.prints;
+                            }
+                        });
+                    }, 1000)
+
+                }).catch(err => {
+                    window.console.log("err:----")
+                    window.console.log(err)
+                    this.$Spin.hide();
+                    this.$Message.error({
+                        content: "请求异常",
+                        duration: 5
+                    });
+                    return;
+                });
             }
         },
-        mounted() {
-            window.console.log(AES.encrypt("746108479@qq.com"))
-        }
+        mounted() {}
     };

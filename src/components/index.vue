@@ -67,7 +67,7 @@
                         <Scroll
                           :height="scrollHeight"
                           class="spider-console-content"
-                        >周二早上好，有没有听周杰伦的最新单曲？</Scroll>
+                        >{{consoleValue}}</Scroll>
                       </TabPane>
                       <TabPane label="TextView"></TabPane>
                     </Tabs>
@@ -82,7 +82,7 @@
       <div class="spider-footer">
         <div class="spider-footer-btn">
           <Button type="info" size="small">保存</Button>
-          <Button type="primary" size="small">运行</Button>
+          <Button type="primary" size="small" @click="runCode()">运行</Button>
         </div>
       </div>
     </Layout>

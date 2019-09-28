@@ -62,6 +62,10 @@
     color: none !important;
 }
 
+.ivu-message-error .ivu-icon {
+    color: none !important;
+}
+
 .spider-reg-text {
     font-size: 18px;
     color: #DEE8F5;

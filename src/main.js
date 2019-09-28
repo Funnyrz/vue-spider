@@ -8,7 +8,7 @@ import router from './router'
 import axios from 'axios';
 
 axios.defaults.timeout = 5000;
-axios.defaults.baseURL = 'http://localhost:8080';
+axios.defaults.baseURL = 'http://192.168.1.6:8080';
 import VueCookies from 'vue-cookies'
 import {
   post,

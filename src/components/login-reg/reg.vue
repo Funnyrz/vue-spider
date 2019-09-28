@@ -116,7 +116,7 @@ export default {
         this.$Spin.show();
         this.$get("/auth/authCode/" + this.regData.code).then(response => {
           this.$Spin.hide();
-          if (response.status != 200) {
+          if (response.retcode != 200) {
             this.$Message.error({
               content: "请求异常",
               duration: 5
