@@ -134,7 +134,6 @@
                 }
                 this.$Spin.show();
                 this.$post("/compile/commit/code", params).then(response => {
-                    this.$Spin.hide();
                     if (response.status != 200) {
                         this.$Message.error({
                             content: "请求异常",
@@ -147,9 +146,19 @@
                     var t1 = window.setInterval(() => {
                         this.$get("/crawler/manage/getTaskResult/" + taskSeq).then(response => {
                             if ("200" == response.status) {
+                                this.$Spin.hide();
                                 window.clearInterval(t1);
                                 this.consoleValue = response.prints;
                             }
+                        }).catch(err => {
+                            window.console.log(err)
+                            window.clearInterval(t1);
+                            this.$Spin.hide();
+                            this.$Message.error({
+                                content: "请求异常",
+                                duration: 5
+                            });
+                            return;
                         });
                     }, 1000)
 
